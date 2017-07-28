@@ -10,5 +10,5 @@ sudo apt-get update
 sudo apt-get install libopencv-nonfree-dev
 ```
 
-**Note : **nonfree module contains all the necessary headers files needed in feature detection.
+**Note :** nonfree module contains all the necessary headers files needed in feature detection.
 
