@@ -181,7 +181,7 @@ class LaserI: virtual public RoboCompLaser::Laser {
 		virtual ~LaserI(){};
 
 		virtual TLaserData getLaserData(const Ice::Current&) {
-		    RoboComp::LaserDataPtr laserData (new RoboComp::LaserData());
+		    RoboComp::TLaserDataPtr laserData (new RoboComp::TLaserData());
 			  pthread_mutex_lock (&laser->mutex);
 
   			//Update laser values
