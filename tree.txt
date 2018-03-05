@@ -1,5 +1,13 @@
-gazebosim/
+../software/gazebosim/
 ├── CMakeLists.txt
+├── gazeborobocompdata
+│   ├── gazebocamera.h
+│   ├── gazebocontactsensor.h
+│   ├── gazebodifferentialrobot.h
+│   ├── gazeboimu.h
+│   ├── gazebolaser.h
+│   ├── gazeboomnirobot.h
+│   └── gazeborgbd.h
 ├── interfaces
 │   ├── CMakeLists.txt
 │   ├── include
@@ -75,6 +83,8 @@ gazebosim/
 │   ├── CMakeLists.txt
 │   ├── differentialrobotI.cpp
 │   ├── differentialrobotI.h
+│   ├── gazeboserver.cpp
+│   ├── gazeboserver.h
 │   ├── genericmonitor.cpp
 │   ├── genericmonitor.h
 │   ├── genericworker.cpp
@@ -89,8 +99,6 @@ gazebosim/
 │   ├── omnirobotI.h
 │   ├── rgbdI.cpp
 │   ├── rgbdI.h
-│   ├── servers.cpp
-│   ├── servers.h
 │   ├── specificmonitor.cpp
 │   ├── specificmonitor.h
 │   ├── specificworker.cpp
@@ -100,4 +108,4 @@ gazebosim/
 └── worlds
     └── simpleWorld.world
 
-21 directories, 79 files
+22 directories, 86 files
