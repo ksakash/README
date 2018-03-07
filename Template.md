@@ -54,11 +54,59 @@ namespace gazebo
 
       // Pointer to the update event connection
       private: event::ConnectionPtr updateConnection;
+      
+      // gazebo node, pubisher and subscriber
+      gazebo::transport::NodePtr gazeboNodePtr;
+      gazebo::transport::SubscriberPtr componentScanSubPtr;
+      gazebo::transport::PublisherPtr componentScanPubPtr;
+
+      // ICE communication interface
+      Ice::CommunicatorPtr ic;
+      Ice::PropertiesPtr prop;
+      std::string Endpoints;
+      Ice::ObjectPtr object;
+      Ice::ObjectAdapterPtr adapter
 
    };
    
    // Register this plugin with the simulator
   GZ_REGISTER_MODEL_PLUGIN(GazeboRoboComp)
 
+}
+
+void *mainThread(void* v)
+{
+
+  	gazebo::Component* component = (gazebo::Component*)v;
+
+  	char* name = (char*)component->nameComponent.c_str();
+
+    int argc = 1;
+
+    char* argv[] = {name};
+    try {
+    
+        this->gazeboNodePtr = gazebo::transport::NodePtr(new gazebo::transport::Node());
+        this->gazeboNodePtr->Init(this->worldName);
+
+        component->ic = EasyIce::initialize(argc, argv);
+        component->prop = component->ic->getProperties();
+
+        component->Endpoints = component->prop->getProperty("Component.Endpoints");
+        std::cout << "Component Endpoints > " << component->Endpoints << std::endl;
+
+        component->adapter = component->ic->createObjectAdapterWithEndpoints("Component", Endpoints);
+        component->object = new ComponentI(component);
+        component->adapter->add(component->object, component->ic->stringToIdentity("Component"));
+        component->adapter->activate();
+        component->ic->waitForShutdown();
+
+    } catch (const Ice::Exception& e) {
+        std::cerr << e << std::endl;
+    } catch (const char* msg) {
+        std::cerr << msg << std::endl;
+    }
+
+    return NULL;
 }
 ```
