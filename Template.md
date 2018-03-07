@@ -13,6 +13,9 @@
 #include <IceUtil/IceUtil.h>
 #include <easyiceconfig/EasyIce.h>
 
+// executed when the plugin is loaded
+void *mainThread(void* v);
+
 namespace gazebo
 {
 
@@ -34,6 +37,11 @@ namespace gazebo
         // simulation iteration.
         this->updateConnection = event::Events::ConnectWorldUpdateBegin(
           std::bind(&ModelPush::OnUpdate, this));
+          
+        // by creating the thread here we initialize the communication setup before the sensor starts working, through which 
+        // it will interact with the robotics component system
+        pthread_t thr_gui;
+        pthread_create(&thr_gui, NULL, &mainThread, (void*)this);
       }
 
       // Update the controller
