@@ -38,8 +38,8 @@ namespace gazebo
         this->updateConnection = event::Events::ConnectWorldUpdateBegin(
           std::bind(&ModelPush::OnUpdate, this));
           
-        // by creating the thread here we initialize the communication setup before the sensor starts working, through which 
-        // it will interact with the robotics component system
+        // by creating the thread here we initialize the communication setup before the sensor starts
+        // working, through which it will interact with the robotics component system
         pthread_t thr_gui;
         pthread_create(&thr_gui, NULL, &mainThread, (void*)this);
       }
