@@ -48,6 +48,8 @@ Generation of generic code, needed to build a robotic architecture, is one of th
 
 * The integration is merged to the main code base, building and installing.
 
+* One can also use it without the integrating it with the main code base, as described [here](https://github.com/ksakash/gazebo-robocomp/blob/master/README.md).
+
 ## Work Left
 Currently the installation has 3 main dependencies: OpenCV, zeroc-ice, Gazebo-7. To install RoboComp with the integration one will need to install these dependencies manually. Also there was no need of a feature for code generation using `cog` module of python.
 
@@ -60,4 +62,8 @@ Currently the installation has 3 main dependencies: OpenCV, zeroc-ice, Gazebo-7.
 
 ## Implementation Details
 
-For implementation details one can look [here](https://robocomp.github.io/web/gsoc/2018/index), for each and every aspect of the integartion.
+For implementation details one can look [here](https://robocomp.github.io/web/gsoc/2018/index), for each and every aspect of the integartion. There are basically three components of integration: [gazebo plugins](https://robocomp.github.io/web/gsoc/2018/akash_kumar_singh/post3), [ice interfaces](https://robocomp.github.io/web/gsoc/2018/akash_kumar_singh/post8) and [gazebo messages](https://robocomp.github.io/web/gsoc/2018/akash_kumar_singh/post10). To know more about the sequence of development of the integration one can look [here](https://robocomp.github.io/web/gsoc/2018/akash_kumar_singh/post10). The overall structure and working of the integration is shown [here](https://robocomp.github.io/web/gsoc/2018/akash_kumar_singh/post9). 
+
+**Demo for integration:** https://youtu.be/Sy3LZV5b3e8 \
+**Demo for gazebo plugins:** https://robocomp.github.io/web/gsoc/2018/akash_kumar_singh/post6 \
+**Demo for gazebo worlds:** https://youtu.be/VcB2a-n86lo 
