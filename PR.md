@@ -10,7 +10,7 @@ This PR is in reference to the GSoC'18 project **Gazebo-RoboComp Integration**. 
 * Has a keyboard controller to control a differential robot model in simulator.
 * Tried to keep it independent of any version of `Gazebo` installed.
 
-There is basically two ways of using the installation: [integrated into the main code base](https://github.com/ksakash/robocomp/blob/gz-dev/tools/gzserver/README.md) or in a [separate repository](https://github.com/ksakash/gazebo-robocomp/blob/master/README.md).
+There is basically two ways of using the installation: [integrated into the main code base](https://github.com/ksakash/robocomp/blob/gz-dev/tools/gzserver/README.md) and in a [separate repository](https://github.com/ksakash/gazebo-robocomp/blob/master/README.md).
 
 The whole report for the code submission is [here](https://gist.github.com/ksakash/ea6c21487df14409a860787ff7a7f66d)
 
